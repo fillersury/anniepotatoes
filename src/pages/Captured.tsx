@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import * as images from "../assets";
+import sevenSisters1 from "../assets/seven-sisters-1.jpg";
+import crystalCove from "../assets/crystal-cove.jpg";
+import newportBeach from "../assets/newport-beach.jpg";
+import japan from "../assets/japan.jpg";
+import tokyoSelfie from "../assets/tokyo-selfie.jpg";
+import jiufen from "../assets/jiufen.jpg";
+import taiwanTemple from "../assets/taiwan-temple.jpg";
+import taiwanCapital from "../assets/taiwan-capital.jpg";
 
 function Captured() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,7 +27,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.sevenSisters1})`,
+                backgroundImage: `url(${sevenSisters1})`,
               }}
             ></div>
           </div>
@@ -28,7 +35,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.crystalCove})`,
+                backgroundImage: `url(${crystalCove})`,
               }}
             ></div>
           </div>
@@ -36,7 +43,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.japan})`,
+                backgroundImage: `url(${japan})`,
               }}
             ></div>
           </div>
@@ -44,7 +51,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.tokyoSelfie})`,
+                backgroundImage: `url(${tokyoSelfie})`,
               }}
             ></div>
           </div>
@@ -52,7 +59,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.jiufen})`,
+                backgroundImage: `url(${jiufen})`,
               }}
             ></div>
           </div>
@@ -60,7 +67,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.newportBeach})`,
+                backgroundImage: `url(${newportBeach})`,
               }}
             ></div>
           </div>
@@ -68,7 +75,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.taiwanCapital})`,
+                backgroundImage: `url(${taiwanCapital})`,
               }}
             ></div>
           </div>
@@ -76,7 +83,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.taiwanTemple})`,
+                backgroundImage: `url(${taiwanTemple})`,
               }}
             ></div>
           </div>
