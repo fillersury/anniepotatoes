@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { FaGithub } from "react-icons/fa";
 import profilePic from "../assets/profile-pic.jpg";
 
 function Compiled() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="relative w-screen min-h-screen bg-slate-950 overflow-hidden p-4">
+    <div
+      className={`relative w-screen min-h-screen bg-slate-950 overflow-hidden p-4 transition-opacity duration-1000 ease-in-out ${
+        isLoaded ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div
           className="relative rounded-lg w-full aspect-[2/3] max-h-[450px] md:col-span-1"
@@ -14,7 +25,7 @@ function Compiled() {
           }}
         ></div>
         <div className="p-6 rounded-lg bg-slate-900 text-white flex flex-col justify-center h-full md:col-span-2 space-y-4">
-          <h1 className="text-2xl font-bold font-mono text-indigo-400 text-center">Annie Luo</h1>
+          <h1 className="text-2xl font-bold font-mono text-indigo-400 text-center">Annie Potatoes</h1>
           <h2 className="text-lg text-center">Full-Stack Software Engineer</h2>
           <ul className="list-disc list-inside text-sm space-y-1">
             <li>💻 4+ years building modern web apps in <span className="text-indigo-300">React</span> & <span className="text-indigo-300">.NET Core</span></li>
@@ -24,12 +35,12 @@ function Compiled() {
             <li>🌆 Based in NYC | Available for hybrid opportunities</li>
           </ul>
         </div>
-        <div className="relative rounded-lg bg-slate-900 text-white p-6 md:col-span-2">
+        <div className="relative rounded-lg bg-slate-900 text-white p-6 md:col-span-">
           <h3 className="text-xl font-bold font-mono text-indigo-400 mb-2">
-            Booz Allen Hamilton
+            Government Contractor
           </h3>
           <p className="text-sm">
-            <strong>Full-Stack Software Engineer (Contractor)</strong> — 2020 to 2024
+            <strong>Full-Stack Software Engineer</strong> — 2020 to 2024
           </p>
           <ul className="list-disc list-inside text-sm mt-2 space-y-1">
             <li>
@@ -51,17 +62,28 @@ function Compiled() {
           </ul>
         </div>
         <div className="relative rounded-lg bg-slate-900 text-white p-6 flex flex-col justify-center md:col-span-1">
-        <h3 className="text-xl font-bold font-mono text-indigo-400 mb-2 text-center">
-          Tech Stack
-        </h3>
-        <ul className="list-disc list-inside text-sm space-y-1">
-          <li><span className="text-indigo-300 font-semibold">Frontend:</span> React, TypeScript, Tailwind CSS</li>
-          <li><span className="text-indigo-300 font-semibold">Backend:</span> .NET Core, Node.js</li>
-          <li><span className="text-indigo-300 font-semibold">Databases:</span> SQL Server, MongoDB, DocumentDB</li>
-          <li><span className="text-indigo-300 font-semibold">Architecture:</span> Microservices, Event-Driven Design</li>
-          <li><span className="text-indigo-300 font-semibold">DevOps:</span> Docker, CI/CD Pipelines</li>
-        </ul>
-      </div>
+          <h3 className="text-xl font-bold font-mono text-indigo-400 mb-2 text-center">
+            Tech Stack
+          </h3>
+          <ul className="list-disc list-inside text-sm space-y-1">
+            <li><span className="text-indigo-300 font-semibold">Frontend:</span> React, TypeScript, Tailwind CSS</li>
+            <li><span className="text-indigo-300 font-semibold">Backend:</span> .NET Core, Node.js</li>
+            <li><span className="text-indigo-300 font-semibold">Databases:</span> SQL Server, MongoDB, DocumentDB</li>
+            <li><span className="text-indigo-300 font-semibold">Architecture:</span> Microservices, Event-Driven Design</li>
+            <li><span className="text-indigo-300 font-semibold">DevOps:</span> Docker, CI/CD Pipelines</li>
+          </ul>
+        </div>
+        <div className="relative rounded-lg bg-slate-900 text-white p-6 flex flex-col justify-center md:col-span-1 text-center cursor-pointer hover:bg-indigo-700 transition-colors">
+          <a 
+            href="https://github.com/anniecluo1998/anniepotatoes" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex flex-col items-center space-y-2"
+          >
+            <FaGithub className="text-4xl text-indigo-400" />
+            <span className="font-mono font-semibold text-indigo-300">View My GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   );

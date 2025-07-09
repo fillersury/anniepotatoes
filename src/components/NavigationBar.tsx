@@ -84,9 +84,9 @@ function NavigationBar() {
         >
           <div className="mt-16 flex flex-col space-y-2 px-6">
             <Link to="/" className={linkClass("/")} onClick={() => setMobileMenuOpen(false)}>Home</Link>
-            <Link to="/gallery" className={linkClass("/gallery")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
-            <Link to="/about" className={linkClass("/about")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
-            <Link to="/shop" className={linkClass("/shop")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
+            <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
+            <Link to="/created" className={linkClass("/created")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
+            <Link to="/captured" className={linkClass("/captured")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import codeImg from "../assets/code-bg.jpg";
@@ -13,13 +13,19 @@ const sections = [
 
 function Home() {
   const navigate = useNavigate();
-  const [isFading, setIsFading] = useState(false);
+  const [isFading, setIsFading] = useState(true); // start faded out for fade-in effect
+
+  useEffect(() => {
+    // fade-in after mount
+    const timeout = setTimeout(() => setIsFading(false), 50); // slight delay for smooth effect
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleClick = (path: string) => {
-    setIsFading(true);
+    setIsFading(true); // fade out on click
     setTimeout(() => {
       navigate(path);
-    }, 700); // Match duration-700 animation duration
+    }, 700); // match duration-700 animation duration
   };
 
   return (
