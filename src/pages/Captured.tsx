@@ -28,6 +28,8 @@ function Captured() {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url(${sevenSisters1})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             ></div>
           </div>
