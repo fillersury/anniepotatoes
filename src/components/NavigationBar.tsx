@@ -7,10 +7,10 @@ function NavigationBar() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const linkClass = (path: string) =>
-    `block px-4 py-2 text-lg font-medium transition-colors duration-200 ${
+    `block px-4 py-2 text-lg font-bold transition-colors duration-200 ${
       pathname === path
-        ? "text-indigo-600 border-b-2 border-indigo-600"
-        : "text-gray-700 hover:text-indigo-500"
+        ? "text-cyan-400 border-b-2 border-cyan-400"
+        : "text-gray-500 hover:text-cyan-500"
     }`;
 
   // Close menu on outside click
@@ -77,19 +77,19 @@ function NavigationBar() {
       </div>
 
       {/* Slide-out menu */}
-      {mobileMenuOpen && (
-        <div
-          ref={menuRef}
-          className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out"
-        >
-          <div className="mt-16 flex flex-col space-y-2 px-6">
-            <Link to="/" className={linkClass("/")} onClick={() => setMobileMenuOpen(false)}>Home</Link>
-            <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
-            <Link to="/created" className={linkClass("/created")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
-            <Link to="/captured" className={linkClass("/captured")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
-          </div>
+      <div
+        ref={menuRef}
+        className={`fixed top-0 right-0 h-full w-64 bg-slate-950 bg-opacity-90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="mt-16 flex flex-col space-y-2 px-6 font-mono uppercase tracking-wide text-lg">
+          <Link to="/" className={linkClass("/")} onClick={() => setMobileMenuOpen(false)}>Home</Link>
+          <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
+          <Link to="/created" className={linkClass("/created")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
+          <Link to="/captured" className={linkClass("/captured")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
