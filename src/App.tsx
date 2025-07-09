@@ -14,7 +14,6 @@ function App() {
       <div className="min-h-screen w-full overflow-x-hidden bg-slate-950 flex flex-col">
         <NavigationBar />
         <main className="flex-grow">
-          {/* Fade-in wrapper */}
           <div className="bg-slate-950 animate-fadeIn min-h-full">
             <Routes>
               <Route path="/" element={<Home />} />

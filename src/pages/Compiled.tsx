@@ -81,7 +81,10 @@ function Compiled() {
             className="flex flex-col items-center space-y-2"
           >
             <FaGithub className="text-4xl text-indigo-400" />
-            <span className="font-mono font-semibold text-indigo-300">View My GitHub</span>
+            <span
+              title="Click to view my GitHub repository"
+              className="font-mono font-semibold text-indigo-300"
+            >View My GitHub</span>
           </a>
         </div>
       </div>

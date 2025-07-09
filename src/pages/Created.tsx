@@ -19,6 +19,7 @@ function Created() {
         {[...Array(3)].map((_, i) => (
           <span
             key={i}
+            data-testid="bounce-dot"
             className={`w-4 h-4 bg-indigo-400 rounded-full animate-bounce`}
             style={{
               animationDelay: `${i * 0.3}s`,

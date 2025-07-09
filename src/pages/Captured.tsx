@@ -1,33 +1,86 @@
 import React, { useState, useEffect } from "react";
+import * as images from "../assets";
 
 function Captured() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Trigger fade-in after component mounts
     setIsLoaded(true);
   }, []);
 
   return (
     <div
-      className={`relative w-screen h-screen bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${
+      className={`relative w-screen min-h-screen bg-slate-950 overflow-hidden p-4 transition-opacity duration-1000 ease-in-out ${
         isLoaded ? "opacity-100" : "opacity-0"
       }`}
     >
-      <h1 className="text-white mb-8 text-2xl font-semibold">Captured Page Coming Soon!</h1>
-      <div className="flex space-x-2">
-        {[...Array(3)].map((_, i) => (
-          <span
-            key={i}
-            className={`w-4 h-4 bg-indigo-400 rounded-full animate-bounce`}
-            style={{
-              animationDelay: `${i * 0.3}s`,
-              animationDuration: "1.2s",
-              animationIterationCount: "infinite",
-              animationTimingFunction: "ease-in-out",
-            }}
-          />
-        ))}
+      <div className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.sevenSisters1})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-1 md:col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.crystalCove})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.japan})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-1 md:col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.tokyoSelfie})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.jiufen})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.newportBeach})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.taiwanCapital})`,
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.taiwanTemple})`,
+              }}
+            ></div>
+          </div>
+        </div>
       </div>
     </div>
   );
