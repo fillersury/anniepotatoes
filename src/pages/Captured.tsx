@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import sevenSisters1 from "../assets/seven-sisters-1.jpg";
+import sevenSisters from "../assets/seven-sisters.jpg";
 import crystalCove from "../assets/crystal-cove.jpg";
 import newportBeach from "../assets/newport-beach.jpg";
 import japan from "../assets/japan.jpg";
 import tokyoSelfie from "../assets/tokyo-selfie.jpg";
 import jiufen from "../assets/jiufen.jpg";
 import taiwanTemple from "../assets/taiwan-temple.jpg";
-import taiwanCapital from "../assets/taiwan-capital.jpg";
+import taiwanFood from "../assets/taiwan-food.jpg";
 
 function Captured() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,9 +27,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${sevenSisters1})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundImage: `url(${sevenSisters})`,
               }}
             ></div>
           </div>
@@ -77,7 +75,7 @@ function Captured() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${taiwanCapital})`,
+                backgroundImage: `url(${taiwanFood})`,
               }}
             ></div>
           </div>
