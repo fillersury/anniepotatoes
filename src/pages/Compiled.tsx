@@ -27,9 +27,9 @@ function Compiled() {
         <div className="p-6 rounded-lg bg-slate-300 dark:bg-slate-900 text-slate-900 dark:text-white flex flex-col justify-center h-full md:col-span-2 space-y-4">
           <h1 className="text-2xl font-bold font-mono text-indigo-800 dark:text-indigo-400 text-center">Annie Potatoes</h1>
           <h2 className="text-lg text-center">Full-Stack Software Engineer</h2>
-          <ul className="list-disc list-inside text-sm space-y-1">
-            <li>💻 4+ years building modern web apps in <span className="text-indigo-800 dark:text-indigo-300">React</span> & <span className="text-indigo-800 dark:text-indigo-300">.NET Core</span></li>
-            <li>🧠 Skilled in TypeScript, Node.js, SQL, MongoDB, & event-driven architecture</li>
+          <ul className="p-4 list-inside text-sm space-y-1">
+            <li>💻 4+ years building modern web apps in <span className="text-indigo-800 dark:text-indigo-300">React.js</span> & <span className="text-indigo-800 dark:text-indigo-300">C#.NET</span> with cross-functional teams</li>
+            <li>🧠 Skilled in TypeScript/JavaScript, Python, SQL, MongoDB, microservices, & event-driven architecture</li>
             <li>🚀 Built & deployed scalable microservices and frontend SPAs</li>
             <li>🔍 Passionate about clean design, thoughtful UX, and performant code</li>
             <li>🌆 Based in NYC | Available for hybrid opportunities</li>
@@ -65,9 +65,9 @@ function Compiled() {
           <h3 className="text-xl font-bold font-mono text-indigo-800 dark:text-indigo-400 mb-2 text-center">
             Tech Stack
           </h3>
-          <ul className="list-disc list-inside text-sm space-y-1">
-            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Frontend:</span> React, TypeScript, Tailwind CSS</li>
-            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Backend:</span> .NET Core, Node.js</li>
+          <ul className="p-4 list-inside text-sm space-y-1">
+            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Frontend:</span> React, TypeScript/Javascript, Tailwind CSS</li>
+            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Backend:</span> C#.Net, Python, Java</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Databases:</span> SQL Server, MongoDB, DocumentDB</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Architecture:</span> Microservices, Event-Driven Design</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">DevOps:</span> Docker, CI/CD Pipelines</li>
