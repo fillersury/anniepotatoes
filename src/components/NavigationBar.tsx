@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import useDarkMode from "../hooks/useDarkMode";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 function NavigationBar() {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { theme, toggleTheme } = useDarkMode();
 
   const linkClass = (path: string) =>
     `block px-4 py-2 text-lg font-bold transition-colors duration-200 ${
       pathname === path
-        ? "text-cyan-400 border-b-2 border-cyan-400"
-        : "text-gray-500 hover:text-cyan-500"
+        ? "text-cyan-900 dark:text-cyan-400 border-b-2 border-cyan-900 dark:border-cyan-400"
+        : "hover:text-cyan-900 text-gray-500 dark:text-gray-500 dark:hover:text-cyan-500"
     }`;
 
   // Close menu on outside click
@@ -36,11 +39,11 @@ function NavigationBar() {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className="bg-slate-950 shadow sticky top-0 z-50">
+    <nav className="bg-slate-200 dark:bg-slate-950 shadow sticky top-0 z-50">
       <div className="max-w-7x1 mx-auto px-4 flex justify-between items-center h-16">
         <Link
           to="/"
-          className="text-xl font-bold font-mono text-cyan-400 hover:text-indigo-800 transition-colors"
+          className="text-xl font-bold font-mono text-cyan-900 dark:text-cyan-400 hover:text-indigo-800 transition-colors"
         >
           anniepotatoes
         </Link>
@@ -79,15 +82,36 @@ function NavigationBar() {
       {/* Slide-out menu */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-64 bg-slate-950 bg-opacity-90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-slate-200 dark:bg-slate-950 bg-opacity-90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+          ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
+          flex flex-col`}
       >
         <div className="mt-16 flex flex-col space-y-2 px-6 font-mono uppercase tracking-wide text-lg">
           <Link to="/" className={linkClass("/")} onClick={() => setMobileMenuOpen(false)}>Home</Link>
           <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
           <Link to="/created" className={linkClass("/created")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
           <Link to="/captured" className={linkClass("/captured")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
+        </div>
+
+        {/* Push to bottom */}
+        <div className="mt-auto px-6 pb-6 flex justify-end">
+          <button
+            onClick={toggleTheme}
+            className={`w-14 h-8 flex items-center rounded-full p-1 transition-colors duration-300
+                        ${theme === "dark" ? "bg-cyan-800" : "bg-slate-400"}`}
+            aria-label="Toggle dark mode"
+          >
+            <div
+              className={`w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center
+                          ${theme === "dark" ? "translate-x-6" : "translate-x-0"}`}
+            >
+              {theme === "dark" ? (
+                <FaMoon className="text-indigo-800 text-sm" />
+              ) : (
+                <FaSun className="text-yellow-500 text-sm" />
+              )}
+            </div>
+          </button>
         </div>
       </div>
     </nav>

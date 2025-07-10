@@ -29,7 +29,7 @@ function Home() {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-slate-950 overflow-hidden">
+    <div className="relative w-screen h-screen bg-slate-200 dark:bg-slate-950 overflow-hidden">
       <div
         className={`grid grid-cols-1 md:grid-cols-3 gap-4 p-4 h-full transition-opacity duration-700 ${
           isFading ? "opacity-0" : "opacity-100"
