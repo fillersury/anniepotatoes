@@ -8,13 +8,13 @@ A sleek, responsive personal portfolio site built with **React**, **TypeScript**
 
 ## Features
 
-- 🌗 **Dark / Light Mode** toggle with animated slider and emoji indicators  
-- 🎨 **Tailwind CSS** styling for modern layout and responsiveness  
-- 🧭 **Sticky navigation bar** with mobile slide-out menu  
-- 📷 **Image gallery** with optimized loading and responsive aspect ratios  
-- ⚛️ **Smooth transitions** between routes with fade-in/fade-out animation  
-- 📱 Fully responsive design for all screen sizes  
-- 🔗 GitHub integration and project links  
+- **Dark / Light Mode** toggle with animated slider and emoji indicators  
+- **Tailwind CSS** styling for modern layout and responsiveness  
+- **Sticky navigation bar** with mobile slide-out menu  
+- **Image gallery** with optimized loading and responsive aspect ratios  
+- **Smooth transitions** between routes with fade-in/fade-out animation  
+- Fully responsive design for all screen sizes  
+- GitHub integration and project links  
 
 ---
 
