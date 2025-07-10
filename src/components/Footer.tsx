@@ -8,7 +8,7 @@ function Footer() {
         <div className="space-x-4 mt-2 md:mt-0">
           <a href="mailto:annieluo.gobucks@gmail.com" className="font-mono text-cyan-400 hover:text-indigo-800">Email</a>
           <a href="https://instagram.com/anniepotatoes" target="_blank" rel="noopener noreferrer" className="font-mono text-cyan-400 hover:text-indigo-800">Instagram</a>
-          <a href="https://linkedin.com/in/anniepotatoes" target="_blank" rel="noopener noreferrer" className="font-mono text-cyan-400 hover:text-indigo-800">LinkedIn</a>
+          <a href="https://github.com/fillersury" target="_blank" rel="noopener noreferrer" className="font-mono text-cyan-400 hover:text-indigo-800">GitHub</a>
         </div>
       </div>
     </footer>

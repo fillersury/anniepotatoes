@@ -37,7 +37,7 @@ src/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/anniecluo1998/anniepotatoes.git
+   git clone https://github.com/fillersury/anniepotatoes.git
    cd anniepotatoes
    ```
 
@@ -89,7 +89,7 @@ I'm a full-stack engineer based in NYC with 4+ years of experience building mode
 
 ## Contact
 
-📫 [anniecluo1998@gmail.com](mailto:anniecluo1998@gmail.com)  
+📫 [fillersury@gmail.com](mailto:fillersury@gmail.com)  
 🔗 [linkedin.com/in/anniecluo](https://linkedin.com/in/anniecluo)  
 📸 [instagram.com/anniepotatoes](https://instagram.com/anniepotatoes)
 

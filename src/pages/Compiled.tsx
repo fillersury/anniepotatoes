@@ -75,7 +75,7 @@ function Compiled() {
         </div>
         <div className="relative rounded-lg bg-slate-300 text-slate-900 dark:bg-slate-900 dark:text-white p-6 flex flex-col justify-center md:col-span-1 text-center cursor-pointer hover:bg-indigo-700 transition-colors">
           <a 
-            href="https://github.com/anniecluo1998/anniepotatoes" 
+            href="https://github.com/fillersury/anniepotatoes" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex flex-col items-center space-y-2"
