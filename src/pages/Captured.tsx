@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PhotoCard from "../components/PhotoCard";
 import sevenSisters from "../assets/seven-sisters.jpg";
 import crystalCove from "../assets/crystal-cove.jpg";
 import newportBeach from "../assets/newport-beach.jpg";
@@ -23,70 +24,64 @@ function Captured() {
     >
       <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${sevenSisters})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-1 md:col-span-2">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${crystalCove})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${japan})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-1 md:col-span-2">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${tokyoSelfie})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-2">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${jiufen})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${newportBeach})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[150%] rounded-lg overflow-hidden col-span-1">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${taiwanFood})`,
-              }}
-            ></div>
-          </div>
-          <div className="relative w-full h-0 pt-[66.66%] rounded-lg overflow-hidden col-span-2">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${taiwanTemple})`,
-              }}
-            ></div>
-          </div>
+          <PhotoCard
+            image={sevenSisters}
+            aspect="portrait"
+            title="Seven Sisters, UK"
+            date="June 2025"
+            story="Trained all the way to Eastbourne and hiked the chalk cliffs. It was both windy and magical. Wouldn't have traded this day for anything."
+          />
+          <PhotoCard
+            image={crystalCove}
+            aspect="landscape"
+            title="Crystal Cove Beach, CA"
+            date="June 2025"
+            story="Small hike down to Crystal Cove, California. Watched the sunset and the rocky shores."
+          />
+          <PhotoCard
+            image={japan}
+            aspect="portrait"
+            title="Fushimi Inari Taisha, JP"
+            date="October 2024"
+            story="Took a day trip to Kyoto to see the beautiful temples: Kinkaku-ji and Fushimi Inari Taisha."
+          />
+          <PhotoCard
+            image={tokyoSelfie}
+            aspect="landscape"
+            title="Shibuya Sky, JP"
+            date="October 2024"
+            story="Took transit to the Shibuya Sky at Shibuya Scramble Square. The skies were slightly cloudy that day but did not
+              take away from the breaktaking view."
+          />
+          <PhotoCard
+            image={jiufen}
+            aspect="landscape"
+            title="Jiufen, TW"
+            date="September 2024"
+            story="A day trip to JiuFen - the town nestled in the mountains that resembles Spirited Away. Beautiful views of the landscape."
+          />
+          <PhotoCard
+            image={newportBeach}
+            aspect="portrait"
+            title="Jiufen, TW"
+            date="June 2025"
+            story="An entire day of puppy energy and Newport beach. The waves were strong this day and knocked us all over."
+          />
+          <PhotoCard
+            image={taiwanFood}
+            aspect="portrait"
+            title="TaiPei, TW"
+            date="September 2024"
+            story="Strolling through TaiPei looking for food. Their food reminded of my mom's comfort Cantonese food."
+          />
+          <PhotoCard
+            image={taiwanTemple}
+            aspect="landscape"
+            title="LongShan, TW"
+            date="September 2024"
+            story="Our first landmark in our Taipei trip. This was a beautifully intricate temple with lots of visitors. I bought a couple 
+              lucky charms here."
+          />
         </div>
       </div>
     </div>
