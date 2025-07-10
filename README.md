@@ -1,4 +1,4 @@
-# anniepotatoes.dev
+# anniepotatoes.me
 
 A sleek, responsive personal portfolio site built with **React**, **TypeScript**, and **Tailwind CSS**. This site showcases my full-stack engineering work (`Compiled`), creative coding and design projects (`Created`), and original photography (`Captured`). It features dark/light mode, smooth page transitions, and a mobile-optimized slide-out navigation menu.
 
@@ -60,7 +60,7 @@ src/
 
 ## 🌍 Live Demo
 
-> Deployed at: [https://anniepotatoes.dev](https://anniepotatoes.dev)
+> Deployed at: [https://anniepotatoes.me](https://anniepotatoes.me)
 
 ---
 
