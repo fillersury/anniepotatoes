@@ -14,7 +14,7 @@ function Created() {
         isLoaded ? "opacity-100" : "opacity-0"
       }`}
     >
-      <h1 className="text-slate-900 dark:text-white mb-8 text-2xl font-semibold">Created Page Coming Soon!</h1>
+      <h1 className="text-slate-900 dark:text-white mb-8 text-2xl font-semibold">Page Coming Soon!</h1>
       <div className="flex space-x-2">
         {[...Array(3)].map((_, i) => (
           <span

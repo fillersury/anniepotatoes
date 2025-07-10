@@ -82,15 +82,16 @@ function NavigationBar() {
       {/* Slide-out menu */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-64 bg-slate-200 dark:bg-slate-950 bg-opacity-90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 right-0 h-full w-64 bg-slate-200 dark:bg-slate-950 bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out
           ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
           flex flex-col`}
       >
         <div className="mt-16 flex flex-col space-y-2 px-6 font-mono uppercase tracking-wide text-lg">
           <Link to="/" className={linkClass("/")} onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>Compiled</Link>
+          <Link to="/compiled" className={linkClass("/compiled")} onClick={() => setMobileMenuOpen(false)}>About</Link>
           <Link to="/created" className={linkClass("/created")} onClick={() => setMobileMenuOpen(false)}>Created</Link>
           <Link to="/captured" className={linkClass("/captured")} onClick={() => setMobileMenuOpen(false)}>Captured</Link>
+          <Link to="/contact" className={linkClass("/contact")} onClick={() => setMobileMenuOpen(false)}>Contact</Link>
         </div>
 
         {/* Push to bottom */}
