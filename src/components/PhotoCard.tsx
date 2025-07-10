@@ -39,7 +39,7 @@ export default function PhotoCard({ image, aspect, title, date, story }: PhotoCa
         <div className="absolute inset-0 backface-hidden rotate-y-180 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white p-4 rounded-lg flex flex-col justify-center">
           <h3 className="text-lg font-bold mb-1">{title}</h3>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">{date}</p>
-          <p className="text-sm">{story}</p>
+          <p className="text-sm block md:hidden lg:block">{story}</p>
         </div>
       </div>
     </div>

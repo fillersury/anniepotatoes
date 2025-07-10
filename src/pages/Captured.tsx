@@ -41,7 +41,7 @@ function Captured() {
           <PhotoCard
             image={japan}
             aspect="portrait"
-            title="Fushimi Inari Taisha, JP"
+            title="Kyoto, JP"
             date="October 2024"
             story="Took a day trip to Kyoto to see the beautiful temples: Kinkaku-ji and Fushimi Inari Taisha."
           />
