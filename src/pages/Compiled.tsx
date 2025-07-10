@@ -66,7 +66,7 @@ function Compiled() {
             Tech Stack
           </h3>
           <ul className="p-4 list-inside text-sm space-y-1">
-            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Frontend:</span> React, TypeScript/Javascript, Tailwind CSS</li>
+            <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Frontend:</span> React, TypeScript/Javascript, Tailwind CSS, HTML</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Backend:</span> C#.Net, Python, Java</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Databases:</span> SQL Server, MongoDB, DocumentDB</li>
             <li><span className="text-indigo-800 dark:text-indigo-300 font-semibold">Architecture:</span> Microservices, Event-Driven Design</li>
