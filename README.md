@@ -89,8 +89,7 @@ I'm a full-stack engineer based in NYC with 4+ years of experience building mode
 
 ## Contact
 
-📫 [fillersury@gmail.com](mailto:fillersury@gmail.com)  
-🔗 [linkedin.com/in/anniecluo](https://linkedin.com/in/anniecluo)  
+📫 [annieluo.gobucks@gmail.com](mailto:annieluo.gobucks@gmail.com)
 📸 [instagram.com/anniepotatoes](https://instagram.com/anniepotatoes)
 
 ---
