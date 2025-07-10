@@ -40,7 +40,7 @@ function Compiled() {
             Government Contractor
           </h3>
           <p className="text-sm">
-            <strong>Full-Stack Software Engineer</strong> — 2020 to 2024
+            <strong>Full-Stack Software Engineer</strong> — 2020 to Current
           </p>
           <ul className="list-disc list-inside text-sm mt-2 space-y-1">
             <li>
