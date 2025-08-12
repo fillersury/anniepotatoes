@@ -6,7 +6,7 @@ import artImg from "../assets/art-bg.jpg";
 import modelImg from "../assets/model-bg.jpg";
 
 const sections = [
-  { title: "Compiled", imageUrl: codeImg, path: "/compiled" },
+  { title: "Software Engineer", imageUrl: codeImg, path: "/compiled" },
   { title: "Created", imageUrl: artImg, path: "/created" },
   { title: "Captured", imageUrl: modelImg, path: "/captured" },
 ];
