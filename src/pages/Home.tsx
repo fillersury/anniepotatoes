@@ -6,9 +6,9 @@ import artImg from "../assets/art-bg.jpg";
 import modelImg from "../assets/model-bg.jpg";
 
 const sections = [
-  { title: "Software Engineer", imageUrl: codeImg, path: "/compiled" },
-  { title: "Created", imageUrl: artImg, path: "/created" },
-  { title: "Captured", imageUrl: modelImg, path: "/captured" },
+  { title: "Software Engineer", imageUrl: codeImg, path: "/software" },
+  { title: "Projects", imageUrl: artImg, path: "/projects" },
+  { title: "Model Portfolio", imageUrl: modelImg, path: "/portfolio" },
 ];
 
 function Home() {
