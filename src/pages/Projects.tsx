@@ -5,7 +5,7 @@ import titleAnimation from "../assets/title-animation.gif";
 import phoneResponsive from "../assets/phone-responsive.png";
 import tabletResponsive from "../assets/ipad-responsive.png"
 
-function Created() {
+function Projects() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -109,4 +109,4 @@ function Created() {
   );
 }
 
-export default Created;
+export default Projects;

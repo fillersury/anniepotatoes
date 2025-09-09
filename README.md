@@ -1,6 +1,6 @@
 # anniepotatoes.me
 
-A sleek, responsive personal portfolio site built with **React**, **TypeScript**, and **Tailwind CSS**. This site showcases my full-stack engineering work (`Compiled`), creative coding and design projects (`Created`), and original photography (`Captured`). It features dark/light mode, smooth page transitions, and a mobile-optimized slide-out navigation menu.
+A sleek, responsive personal portfolio site built with **React**, **TypeScript**, and **Tailwind CSS**. This site showcases my full-stack engineering credentials (`Software Engineer`), creative coding and design projects (`Projects`), and modeling portfolio (`Model Portfolio`). It features dark/light mode, smooth page transitions, and a mobile-optimized slide-out navigation menu.
 
 ![Screenshot](./src/assets/screenshot-homepage.jpg)
 
@@ -25,7 +25,7 @@ src/
 ├── assets/            # All static images and assets
 ├── components/        # Shared UI components (e.g. NavigationBar)
 ├── hooks/             # Custom React hooks (e.g. useDarkMode)
-├── pages/             # Route-based pages: Home, Compiled, Created, Captured
+├── pages/             # Route-based pages: Home, Software Engineer, Projects, Modeling Portfolio
 ├── App.tsx            # Main app component
 ├── main.tsx           # Entry point
 └── index.css          # Tailwind + global styles

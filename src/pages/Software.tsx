@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import profilePic from "../assets/profile-pic.jpg";
 import { Link } from "react-router-dom";
 
-function Compiled() {
+function Software() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -167,4 +167,4 @@ function Compiled() {
   );
 }
 
-export default Compiled;
+export default Software;
