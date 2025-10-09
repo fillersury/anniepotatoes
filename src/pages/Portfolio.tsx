@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PhotoCard from "../components/PhotoCard";
-import closeup from "../assets/modeling_photos/closeup.jpg";
-import cowboyShot from "../assets/modeling_photos/cowboy_shot.jpg";
-import mediumFullShot from "../assets/modeling_photos/medium_full_shot.jpg";
-import fullShot from "../assets/modeling_photos/full_shot.jpg";
-import threeFourthMediumFullShot from "../assets/modeling_photos/3_4_medium_full_shot.jpg";
-import side_medium_closeup from "../assets/modeling_photos/side_medium_closeup.jpg";
-import medium_shot from "../assets/modeling_photos/medium_shot.jpg";
-import backFullShot from "../assets/modeling_photos/back_full_shot.jpg";
+import closeupBikini from "../assets/modeling_photos/closeup_bikini.jpg";
+import closeupSmileBikini from "../assets/modeling_photos/closeup_smile_bikini.jpg";
+import threeFourthCloseupBikini from "../assets/modeling_photos/3_4_closeup_bikini.jpg";
+import tightMediumShotBikini from "../assets/modeling_photos/tight_medium_shot_bikini.jpg";
+import mediumFullShotBikini from "../assets/modeling_photos/medium_full_shot_bikini.jpg";
+import profileMediumFullShotBikini from "../assets/modeling_photos/profile_medium_full_shot_bikini.jpg";
+import fullShotBikini from "../assets/modeling_photos/full_shot_bikini.jpg";
+import threeFourthFullShotBikini from "../assets/modeling_photos/3_4_full_shot_bikini.jpg";
+
+import fullShotBasic from "../assets/modeling_photos/full_shot_basic.jpg";
+import profileFullShotBasic from "../assets/modeling_photos/profile_full_shot_basic.jpg";
+import profileFullShotBasic2 from "../assets/modeling_photos/profile_full_shot_basic_2.jpg";
+import backMediumShotBikini from "../assets/modeling_photos/back_medium_shot_bikini.jpg";
 
 import portfolioZip from "../assets/modeling_photos/annie_luo_portfolio.zip";
 
@@ -37,35 +42,51 @@ function Portfolio() {
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <PhotoCard
-            image={closeup}
+            image={closeupBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={cowboyShot}
+            image={closeupSmileBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={mediumFullShot}
+            image={threeFourthCloseupBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={fullShot}
+            image={tightMediumShotBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={threeFourthMediumFullShot}
+            image={mediumFullShotBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={side_medium_closeup}
+            image={profileMediumFullShotBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={medium_shot}
+            image={fullShotBikini}
             aspect="portrait"
           />
           <PhotoCard
-            image={backFullShot}
+            image={threeFourthFullShotBikini}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={fullShotBasic}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={profileFullShotBasic}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={profileFullShotBasic2}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={backMediumShotBikini}
             aspect="portrait"
           />
         </div>
