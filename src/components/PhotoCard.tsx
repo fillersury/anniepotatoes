@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { Download } from "lucide-react"; // optional icon
+import { Download, Loader2 } from "lucide-react"; // add spinner icon
 
 type PhotoCardProps = {
   image: string;        // low- or mid-res display image
@@ -12,6 +12,7 @@ export default function PhotoCard({ image, downloadUrl, aspect }: PhotoCardProps
   const aspectRatio = aspect === "portrait" ? "pt-[150%]" : "pt-[66.66%]";
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -31,6 +32,28 @@ export default function PhotoCard({ image, downloadUrl, aspect }: PhotoCardProps
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  // Handle download with a loading state
+  const handleDownload = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch(downloadUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = downloadUrl.split("/").pop() || "photo.jpg";
+      a.click();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Download failed", err);
+      alert("Download failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div
@@ -53,16 +76,23 @@ export default function PhotoCard({ image, downloadUrl, aspect }: PhotoCardProps
           style={{ backgroundImage: `url(${image})` }}
         />
 
-        {/* Hover overlay with download button */}
+        {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <a
-            href={downloadUrl}
-            download
-            className="text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 p-3 rounded-full transition"
+          <button
+            onClick={handleDownload}
+            disabled={loading}
+            className={classNames(
+              "text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 p-3 rounded-full transition flex items-center justify-center",
+              loading && "cursor-not-allowed opacity-80"
+            )}
             title="Download high-quality photo"
           >
-            <Download className="w-6 h-6" />
-          </a>
+            {loading ? (
+              <Loader2 className="w-6 h-6 animate-spin" />
+            ) : (
+              <Download className="w-6 h-6" />
+            )}
+          </button>
         </div>
       </div>
     </div>
