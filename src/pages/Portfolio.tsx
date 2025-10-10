@@ -14,6 +14,19 @@ import profileFullShotBasic from "../assets/modeling_photos/profile_full_shot_ba
 import profileFullShotBasic2 from "../assets/modeling_photos/profile_full_shot_basic_2.jpg";
 import backMediumShotBikini from "../assets/modeling_photos/back_medium_shot_bikini.jpg";
 
+import test1 from "../assets/modeling_photos/test_1.jpg";
+import test2 from "../assets/modeling_photos/test_2.jpg";
+import test3 from "../assets/modeling_photos/test_3.jpg";
+import test4 from "../assets/modeling_photos/test_4.jpg";
+import test5 from "../assets/modeling_photos/test_5.jpg";
+import test6 from "../assets/modeling_photos/test_6.jpg";
+import test7 from "../assets/modeling_photos/test_7.jpg";
+import test8 from "../assets/modeling_photos/test_8.jpg";
+import test9 from "../assets/modeling_photos/test_9.jpg";
+import test10 from "../assets/modeling_photos/test_10.jpg";
+import test11 from "../assets/modeling_photos/test_11.jpg";
+import test12 from "../assets/modeling_photos/test_12.jpg";
+
 function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -86,6 +99,54 @@ function Portfolio() {
           />
           <PhotoCard
             image={backMediumShotBikini}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test1}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test2}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test3}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test4}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test5}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test6}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test7}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test8}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test9}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test10}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test11}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={test12}
             aspect="portrait"
           />
         </div>
