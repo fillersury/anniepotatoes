@@ -14,8 +14,6 @@ import profileFullShotBasic from "../assets/modeling_photos/profile_full_shot_ba
 import profileFullShotBasic2 from "../assets/modeling_photos/profile_full_shot_basic_2.jpg";
 import backMediumShotBikini from "../assets/modeling_photos/back_medium_shot_bikini.jpg";
 
-import portfolioZip from "../assets/modeling_photos/annie_luo_portfolio.zip";
-
 function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -31,7 +29,8 @@ function Portfolio() {
     >
       <div className="flex flex-col items-center">
         <a
-          href={portfolioZip}
+          href="https://annie-modeling-digitals-portfolio.s3.us-east-1.amazonaws.com/annie_luo_digitals.zip"
+          download
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs sm:text-sm lg:text-base text-white bg-cyan-900 hover:bg-cyan-800 px-4 sm:px-8 lg:px-12 my-5 py-2 rounded-xl inline-block text-center"
@@ -42,15 +41,15 @@ function Portfolio() {
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <PhotoCard
-            image={closeupBikini}
-            aspect="portrait"
-          />
-          <PhotoCard
             image={closeupSmileBikini}
             aspect="portrait"
           />
           <PhotoCard
             image={threeFourthCloseupBikini}
+            aspect="portrait"
+          />
+          <PhotoCard
+            image={closeupBikini}
             aspect="portrait"
           />
           <PhotoCard
