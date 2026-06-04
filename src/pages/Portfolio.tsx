@@ -1,54 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PhotoCard from "../components/PhotoCard";
-import closeupBikini from "../assets/modeling_photos/closeup_bikini.jpg";
-import closeupSmileBikini from "../assets/modeling_photos/closeup_smile_bikini.jpg";
-import threeFourthCloseupBikini from "../assets/modeling_photos/3_4_closeup_bikini.jpg";
-import tightMediumShotBikini from "../assets/modeling_photos/tight_medium_shot_bikini.jpg";
-import mediumFullShotBikini from "../assets/modeling_photos/medium_full_shot_bikini.jpg";
-import profileMediumFullShotBikini from "../assets/modeling_photos/profile_medium_full_shot_bikini.jpg";
-import fullShotBikini from "../assets/modeling_photos/full_shot_bikini.jpg";
-import threeFourthFullShotBikini from "../assets/modeling_photos/3_4_full_shot_bikini.jpg";
-import fullShotBasic from "../assets/modeling_photos/full_shot_basic.jpg";
-import profileFullShotBasic from "../assets/modeling_photos/profile_full_shot_basic.jpg";
-import profileFullShotBasic2 from "../assets/modeling_photos/profile_full_shot_basic_2.jpg";
-import backMediumShotBikini from "../assets/modeling_photos/back_medium_shot_bikini.jpg";
-import closeupBikiniDownload from "../assets/modeling_photos/closeup_bikini_high_quality.jpg";
-import closeupSmileBikiniDownload from "../assets/modeling_photos/closeup_smile_bikini_high_quality.jpg";
-import threeFourthCloseupBikiniDownload from "../assets/modeling_photos/3_4_closeup_bikini_high_quality.jpg";
-import tightMediumShotBikiniDownload from "../assets/modeling_photos/tight_medium_shot_bikini_high_quality.jpg";
-import mediumFullShotBikiniDownload from "../assets/modeling_photos/medium_full_shot_bikini_high_quality.jpg";
-import profileMediumFullShotBikiniDownload from "../assets/modeling_photos/profile_medium_full_shot_bikini_high_quality.jpg";
-import fullShotBikiniDownload from "../assets/modeling_photos/full_shot_bikini_high_quality.jpg";
-import threeFourthFullShotBikiniDownload from "../assets/modeling_photos/3_4_full_shot_bikini_high_quality.jpg";
-import fullShotBasicDownload from "../assets/modeling_photos/full_shot_basic_high_quality.jpg";
-import profileFullShotBasicDownload from "../assets/modeling_photos/profile_full_shot_basic_high_quality.jpg";
-import profileFullShotBasic2Download from "../assets/modeling_photos/profile_full_shot_basic_2_high_quality.jpg";
-import backMediumShotBikiniDownload from "../assets/modeling_photos/back_medium_shot_bikini_high_quality.jpg";
 
-import test1 from "../assets/modeling_photos/test_1.jpg";
-import test2 from "../assets/modeling_photos/test_2.jpg";
-import test3 from "../assets/modeling_photos/test_3.jpg";
-import test4 from "../assets/modeling_photos/test_4.jpg";
-import test5 from "../assets/modeling_photos/test_5.jpg";
-import test6 from "../assets/modeling_photos/test_6.jpg";
-import test7 from "../assets/modeling_photos/test_7.jpg";
-import test8 from "../assets/modeling_photos/test_8.jpg";
-import test9 from "../assets/modeling_photos/test_9.jpg";
-import test10 from "../assets/modeling_photos/test_10.jpg";
-import test11 from "../assets/modeling_photos/test_11.jpg";
-import test12 from "../assets/modeling_photos/test_12.jpg";
-import test1Download from "../assets/modeling_photos/test_1_high_quality.jpg";
-import test2Download from "../assets/modeling_photos/test_2_high_quality.jpg";
-import test3Download from "../assets/modeling_photos/test_3_high_quality.jpg";
-import test4Download from "../assets/modeling_photos/test_4_high_quality.jpg";
-import test5Download from "../assets/modeling_photos/test_5_high_quality.jpg";
-import test6Download from "../assets/modeling_photos/test_6_high_quality.jpg";
-import test7Download from "../assets/modeling_photos/test_7_high_quality.jpg";
-import test8Download from "../assets/modeling_photos/test_8_high_quality.jpg";
-import test9Download from "../assets/modeling_photos/test_9_high_quality.jpg";
-import test10Download from "../assets/modeling_photos/test_10_high_quality.jpg";
-import test11Download from "../assets/modeling_photos/test_11_high_quality.jpg";
-import test12Download from "../assets/modeling_photos/test_12_high_quality.jpg";
+const CDN_URL = import.meta.env.VITE_CDN_URL;
+
+export const photoUrl = (path: string) =>
+  `${CDN_URL}/${path}.jpg`;
 
 function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -76,125 +32,190 @@ function Portfolio() {
       </div>
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          <PhotoCard
-            image={closeupSmileBikini}
+          {/* <PhotoCard
+            image={photoUrl('digitals/closeup_smile_bikini')}
             aspect="portrait"
-            downloadUrl={closeupSmileBikiniDownload}
+            downloadUrl={photoUrl('digitals/closeup_smile_bikini')}
           />
           <PhotoCard
-            image={threeFourthCloseupBikini}
+            image={photoUrl('digitals/3_4_closeup_bikini')}
             aspect="portrait"
-            downloadUrl={threeFourthCloseupBikiniDownload}
+            downloadUrl={photoUrl('digitals/3_4_closeup_bikini')}
           />
           <PhotoCard
-            image={closeupBikini}
-            aspect="portrait"
-            downloadUrl={closeupBikiniDownload}
+            image={photoUrl('digitals/closeup_bikini')}
+            aspect="portrait" 
+            downloadUrl={photoUrl('digitals/closeup_bikini')}
           />
           <PhotoCard
-            image={tightMediumShotBikini}
+            image={photoUrl('digitals/tight_medium_shot_bikini')}
             aspect="portrait"
-            downloadUrl={tightMediumShotBikiniDownload}
+            downloadUrl={photoUrl('digitals/tight_medium_shot_bikini')}
           />
           <PhotoCard
-            image={mediumFullShotBikini}
+            image={photoUrl('digitals/medium_full_shot_bikini')}
             aspect="portrait"
-            downloadUrl={mediumFullShotBikiniDownload}
+            downloadUrl={photoUrl('digitals/medium_full_shot_bikini')}
           />
           <PhotoCard
-            image={profileMediumFullShotBikini}
+            image={photoUrl('digitals/profile_medium_full_shot_bikini')}
             aspect="portrait"
-            downloadUrl={profileMediumFullShotBikiniDownload}
+            downloadUrl={photoUrl('digitals/profile_medium_full_shot_bikini')}
           />
           <PhotoCard
-            image={fullShotBikini}
+            image={photoUrl('digitals/full_shot_bikini')}
             aspect="portrait"
-            downloadUrl={fullShotBikiniDownload}
+            downloadUrl={photoUrl('digitals/full_shot_bikini')}
           />
           <PhotoCard
-            image={threeFourthFullShotBikini}
+            image={photoUrl('digitals/3_4_full_shot_bikini')}
             aspect="portrait"
-            downloadUrl={threeFourthFullShotBikiniDownload}
+            downloadUrl={photoUrl('digitals/3_4_full_shot_bikini')}
           />
           <PhotoCard
-            image={fullShotBasic}
+            image={photoUrl('digitals/full_shot_basic')}
             aspect="portrait"
-            downloadUrl={fullShotBasicDownload}
+            downloadUrl={photoUrl('digitals/full_shot_basic')}
           />
           <PhotoCard
-            image={profileFullShotBasic}
+            image={photoUrl('digitals/full_shot_basic_2')}
             aspect="portrait"
-            downloadUrl={profileFullShotBasicDownload}
+            downloadUrl={photoUrl('digitals/full_shot_basic_2')}
           />
           <PhotoCard
-            image={profileFullShotBasic2}
+            image={photoUrl('digitals/back_medium_shot_bikini')}
             aspect="portrait"
-            downloadUrl={profileFullShotBasic2Download}
+            downloadUrl={photoUrl('digitals/back_medium_shot_bikini')}
+          /> */}
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R1783')}
+            aspect="landscape"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R1783')}
           />
           <PhotoCard
-            image={backMediumShotBikini}
-            aspect="portrait"
-            downloadUrl={backMediumShotBikiniDownload}
+            image={photoUrl('test_shoots/260417-ANNIE-A7R1773')}
+            aspect="landscape"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R1773')}
           />
           <PhotoCard
-            image={test1}
+            image={photoUrl('test_shoots/260417-ANNIE-A7R2068')}
             aspect="portrait"
-            downloadUrl={test1Download}
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R2068')}
           />
           <PhotoCard
-            image={test2}
+            image={photoUrl('test_shoots/260417-ANNIE-A7R2398')}
             aspect="portrait"
-            downloadUrl={test2Download}
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R2398')}
           />
           <PhotoCard
-            image={test3}
+            image={photoUrl('test_shoots/260417-ANNIE-A7R2568')}
             aspect="portrait"
-            downloadUrl={test3Download}
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R2568')}
           />
           <PhotoCard
-            image={test4}
+            image={photoUrl('test_shoots/260417-ANNIE-A7R1787')}
             aspect="portrait"
-            downloadUrl={test4Download}
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R1787')}
           />
           <PhotoCard
-            image={test5}
+            image={photoUrl('test_shoots/_CNO2361')}
             aspect="portrait"
-            downloadUrl={test5Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2361')}
           />
           <PhotoCard
-            image={test6}
+            image={photoUrl('test_shoots/_CNO2426')}
             aspect="portrait"
-            downloadUrl={test6Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2426')}
           />
           <PhotoCard
-            image={test7}
+            image={photoUrl('test_shoots/_CNO2455')}
             aspect="portrait"
-            downloadUrl={test7Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2455')}
           />
           <PhotoCard
-            image={test8}
+            image={photoUrl('test_shoots/_CNO2502')}
             aspect="portrait"
-            downloadUrl={test8Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2502')}
           />
           <PhotoCard
-            image={test9}
+            image={photoUrl('test_shoots/_CNO2004')}
             aspect="portrait"
-            downloadUrl={test9Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2004')}
           />
           <PhotoCard
-            image={test10}
+            image={photoUrl('test_shoots/_CNO2040')}
             aspect="portrait"
-            downloadUrl={test10Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2040')}
           />
           <PhotoCard
-            image={test11}
+            image={photoUrl('test_shoots/_CNO2070')}
             aspect="portrait"
-            downloadUrl={test11Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2070')}
           />
           <PhotoCard
-            image={test12}
+            image={photoUrl('test_shoots/_CNO2075')}
             aspect="portrait"
-            downloadUrl={test12Download}
+            downloadUrl={photoUrl('test_shoots/_CNO2075')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/_CNO2139')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/_CNO2139')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/_CNO2181')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/_CNO2181')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/_CNO2199')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/_CNO2199')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/_CNO2273')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/_CNO2273')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R1439')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R1439')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R1647')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R1647')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R2843')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R2843')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R2989')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R2989')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R3004')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R3004')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R3039')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R3039')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-A7R3197')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-A7R3197')}
+          />
+          <PhotoCard
+            image={photoUrl('test_shoots/260417-ANNIE-pola-03')}
+            aspect="portrait"
+            downloadUrl={photoUrl('test_shoots/260417-ANNIE-pola-03')}
           />
         </div>
       </div>
