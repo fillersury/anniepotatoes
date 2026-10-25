@@ -39,7 +39,7 @@ function NavigationBar() {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className="bg-slate-200 dark:bg-slate-950 shadow sticky top-0 z-50">
+    <nav className="bg-[#f3f6f8] dark:bg-slate-950 shadow sticky top-0 z-50">
       <div className="max-w-7x1 mx-auto px-4 flex justify-between items-center h-16">
         <Link
           to="/"
@@ -82,7 +82,7 @@ function NavigationBar() {
       {/* Slide-out menu */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-64 bg-slate-200 dark:bg-slate-950 bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 right-0 h-full w-64 bg-[#f3f6f8]/90 dark:bg-slate-950/90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 ease-in-out
           ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
           flex flex-col`}
       >

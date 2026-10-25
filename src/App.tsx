@@ -7,16 +7,13 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import React from "react";
 import './index.css';
-import NavigationBar from "./components/NavigationBar";
-import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen w-full overflow-x-hidden bg-slate-950 flex flex-col">
-        <NavigationBar />
+      <div className="min-h-screen w-full overflow-x-hidden bg-[#F8E8EE] flex flex-col dark:bg-[#F8E8EE]">
         <main className="flex-grow">
-          <div className="bg-slate-950 animate-fadeIn min-h-full">
+          <div className="bg-[#F8E8EE] animate-fadeIn min-h-full dark:bg-[#F8E8EE]">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/software" element={<Software />} />
@@ -27,7 +24,6 @@ function App() {
             </Routes>
           </div>
         </main>
-        <Footer />
       </div>
     </Router>
   );
