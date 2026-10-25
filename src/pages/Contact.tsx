@@ -13,7 +13,7 @@ export default function Contact() {
 
     return (
         <div
-        className={`relative w-screen h-screen bg-slate-200 dark:bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${
+        className={`relative w-screen h-screen bg-[#f3f6f8] dark:bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${
             isLoaded ? "opacity-100" : "opacity-0"
         }`}
         >
