@@ -112,7 +112,7 @@ body {
   background: #000000;
   contain: layout paint;
   will-change: opacity, transform;
-  animation: modelGalleryMarquee 30s linear infinite;
+  animation: modelGalleryMarquee 180s linear infinite;
 }
 
 .film-roll .model-gallery-grid::before,
