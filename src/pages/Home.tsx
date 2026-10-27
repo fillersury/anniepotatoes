@@ -175,7 +175,7 @@ function Home() {
             onMouseLeave={() => setHoveredCaret(null)}
             onFocus={() => setHoveredCaret("down")}
             onBlur={() => setHoveredCaret(null)}
-            className={`fixed bottom-[calc(6.5rem+env(safe-area-inset-bottom))] left-1/2 z-50 flex min-h-10 min-w-10 -translate-x-1/2 rotate-180 items-center justify-center text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:bottom-28 sm:text-4xl lg:text-5xl ${hoveredCaret === "down" ? "scale-150" : ""} ${isDarkCarouselPage ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
+            className={`fixed bottom-[calc(9rem+env(safe-area-inset-bottom))] left-1/2 z-50 flex min-h-10 min-w-10 -translate-x-1/2 rotate-180 items-center justify-center text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:bottom-36 sm:text-4xl lg:bottom-40 lg:text-5xl ${hoveredCaret === "down" ? "scale-150" : ""} ${isDarkCarouselPage ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
           >
             ^
           </button>
