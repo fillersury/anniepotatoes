@@ -160,7 +160,7 @@ function Home() {
             onMouseLeave={() => setHoveredCaret(null)}
             onFocus={() => setHoveredCaret("up")}
             onBlur={() => setHoveredCaret(null)}
-            className={`fixed left-1/2 top-6 z-50 -translate-x-1/2 text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:top-8 sm:text-4xl lg:text-5xl ${hoveredCaret === "up" ? "scale-150" : ""} ${isDarkCarouselPage || (activeSection.title === "Hello" && scrollPageIndex === 2) ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
+            className={`fixed left-1/2 top-[calc(1.5rem+env(safe-area-inset-top))] z-50 flex min-h-10 min-w-10 -translate-x-1/2 items-center justify-center text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:top-8 sm:text-4xl lg:text-5xl ${hoveredCaret === "up" ? "scale-150" : ""} ${isDarkCarouselPage || (activeSection.title === "Hello" && scrollPageIndex === 2) ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
           >
             ^
           </button>
@@ -175,7 +175,7 @@ function Home() {
             onMouseLeave={() => setHoveredCaret(null)}
             onFocus={() => setHoveredCaret("down")}
             onBlur={() => setHoveredCaret(null)}
-            className={`fixed bottom-24 left-1/2 z-50 -translate-x-1/2 rotate-180 text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:bottom-28 sm:text-4xl lg:text-5xl ${hoveredCaret === "down" ? "scale-150" : ""} ${isDarkCarouselPage ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
+            className={`fixed bottom-[calc(6.5rem+env(safe-area-inset-bottom))] left-1/2 z-50 flex min-h-10 min-w-10 -translate-x-1/2 rotate-180 items-center justify-center text-3xl font-bold leading-none transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current sm:bottom-28 sm:text-4xl lg:text-5xl ${hoveredCaret === "down" ? "scale-150" : ""} ${isDarkCarouselPage ? "text-[#F8E8EE]" : "text-[#6456C2]"}`}
           >
             ^
           </button>
@@ -184,7 +184,7 @@ function Home() {
         {createPortal(
           <nav
             aria-label="Choose a section"
-            className="liquid-nav fixed bottom-7 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full p-1.5 sm:bottom-10"
+            className="liquid-nav fixed bottom-[calc(1.75rem+env(safe-area-inset-bottom))] left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full p-1.5 sm:bottom-10"
           >
             {sections.map((section, index) => (
               <button

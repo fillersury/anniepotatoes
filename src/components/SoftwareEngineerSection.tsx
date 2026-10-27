@@ -36,7 +36,7 @@ function SoftwareEngineerSection() {
             ["Animated title effects", "Motion in the page headers gives the experience a modern, memorable introduction."],
             ["Responsive by design", "The layout adapts across mobile, tablet, and desktop so the work stays accessible everywhere."],
           ].map(([title, description]) => (
-            <article key={title} className="border-t border-[#23519F]/25 pt-5 first:border-t-0 first:pt-0">
+            <article key={title} className="pt-5">
               <h3 className="font-mono text-lg font-bold uppercase tracking-[0.08em] text-[#6456C2]">{title}</h3>
               <p className="mt-3 font-mono text-sm normal-case leading-relaxed text-[#23519F]">{description}</p>
             </article>
@@ -45,6 +45,35 @@ function SoftwareEngineerSection() {
         <div className="mt-12 border-t border-[#23519F]/25 pt-8">
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#A83F6B]">Built for every screen</p>
           <p className="mt-3 font-mono text-sm normal-case leading-relaxed text-[#23519F] sm:text-base">Responsive layouts, interaction details, and visual hierarchy work together across phone, tablet, and desktop.</p>
+        </div>
+        <div className="mt-20 border-t border-[#23519F]/25 pt-12 sm:mt-28 sm:pt-16">
+          <div className="border-b border-[#23519F]/25 pb-8">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#A83F6B]">Current build</p>
+              <h2 className="mt-3 font-mono text-3xl font-bold uppercase tracking-[0.04em] text-[#6456C2] sm:text-5xl">Annie Potatoes portfolio</h2>
+            </div>
+          </div>
+          <p className="mt-8 max-w-3xl font-mono text-base normal-case leading-relaxed text-[#23519F] sm:text-lg">A responsive React portfolio built to bring software engineering, art, and modeling into one visual experience, with a lightweight content workflow for maintaining the site over time.</p>
+          <div className="mt-10 border-y border-[#23519F]/25 py-6 sm:py-8">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#A83F6B]">Built with</p>
+            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3 font-mono text-sm uppercase tracking-[0.08em] text-[#6456C2] sm:gap-x-7">
+              {["React", "TypeScript", "Vite", "Tailwind CSS", "AWS S3", "CloudFront", "Amplify", "Route 53"].map((technology) => (
+                <li key={technology}>{technology}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              ["Optimized delivery", "Responsive image derivatives and CloudFront caching keep the visual experience fast."],
+              ["Accessible interaction", "Semantic structure, visible focus states, and reduced-motion support make the site easier to use."],
+              ["Content-driven architecture", "An S3 manifest makes the model portfolio easy to update without changing the carousel."],
+            ].map(([title, description]) => (
+              <article key={title} className="pt-5">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#6456C2]">{title}</h3>
+                <p className="mt-2 font-mono text-xs normal-case leading-relaxed text-[#23519F]">{description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
