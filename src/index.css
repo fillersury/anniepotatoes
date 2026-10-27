@@ -115,10 +115,6 @@ body {
   animation: modelGalleryMarquee 30s linear infinite;
 }
 
-.model-gallery-grid.is-paused {
-  animation-play-state: paused;
-}
-
 .film-roll .model-gallery-grid::before,
 .film-roll .model-gallery-grid::after {
   position: absolute;

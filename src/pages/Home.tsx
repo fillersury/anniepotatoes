@@ -1,35 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-
-import smoothTransitions from "../assets/smooth-transitions.gif";
-import scrollAnimation from "../assets/scroll-animation.gif";
-import titleAnimation from "../assets/title-animation.gif";
-import phoneResponsive from "../assets/phone-responsive.png";
-import tabletResponsive from "../assets/ipad-responsive.png";
-
-type ModelPhoto = {
-  src: string;
-  alt: string;
-};
-
-const modelPortfolioBaseUrl = "https://portfolio.anniepotatoes.me/test_shoots";
-
-const fallbackModelPortfolio: ModelPhoto[] = Array.from({ length: 12 }, (_, index) => {
-  const photoNumber = index + 1;
-  return {
-    src: `${modelPortfolioBaseUrl}/test_${photoNumber}.jpg`,
-    alt: `Portrait ${photoNumber} from Annie Luo's model portfolio`,
-  };
-});
-
-function shuffle<T>(items: T[]) {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
-  }
-  return shuffled;
-}
+import HomeIntroSections from "../components/HomeIntroSections";
+import ModelCarousel from "../components/ModelCarousel";
+import SoftwareEngineerSection from "../components/SoftwareEngineerSection";
 
 const sections = [
   {
@@ -54,50 +27,12 @@ function Home() {
   const [isFading, setIsFading] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
-  const [modelPortfolio, setModelPortfolio] = useState<ModelPhoto[]>(fallbackModelPortfolio);
-  const [modelOrder, setModelOrder] = useState(() => shuffle(fallbackModelPortfolio));
-  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const [scrollPageIndex, setScrollPageIndex] = useState(0);
   const [hoveredCaret, setHoveredCaret] = useState<"up" | "down" | null>(null);
   const interactionLock = useRef(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const sectionScrollPositions = useRef<Record<number, number>>({});
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    fetch(`${modelPortfolioBaseUrl}/model-portfolio.json`, { signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error(`Manifest request failed: ${response.status}`);
-        return response.json() as Promise<unknown>;
-      })
-      .then((manifest) => {
-        if (!Array.isArray(manifest)) throw new Error("Manifest must be an array");
-
-        const photos = manifest.flatMap((entry) => {
-          if (!entry || typeof entry !== "object" || !("file" in entry) || typeof entry.file !== "string") return [];
-          if (!/^test_\d+\.jpg$/.test(entry.file)) return [];
-
-          return [{
-            src: `${modelPortfolioBaseUrl}/${entry.file}`,
-            alt: "alt" in entry && typeof entry.alt === "string" ? entry.alt : "Model portfolio portrait",
-          }];
-        });
-
-        if (photos.length > 0) setModelPortfolio(photos);
-      })
-      .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "AbortError") return;
-        console.warn("Using the fallback model portfolio because the manifest could not be loaded.", error);
-      });
-
-    return () => controller.abort();
-  }, []);
-
-  useEffect(() => {
-    setModelOrder(shuffle(modelPortfolio));
-  }, [modelPortfolio]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsFading(false), 50);
@@ -210,159 +145,11 @@ function Home() {
 
         </div>
 
-        {activeSection.title === "Hello" && (
-          <section className="relative flex min-h-screen snap-start snap-always items-center bg-[#F8E8EE] px-7 py-24 text-[#23519F] sm:px-12 lg:px-24">
-            <div className="mx-auto w-full max-w-2xl text-center font-mono">
-              <p className="text-xs uppercase tracking-[0.22em] text-[#A83F6B]">About me</p>
-              <p className="mt-5 text-xl leading-tight text-[#6456C2] sm:text-2xl">A curious creative working across technology, art, and image-making.</p>
-              <p className="mx-auto mt-6 max-w-xl text-sm normal-case leading-relaxed text-[#23519F] sm:text-base">I like making things that feel thoughtful, useful, and a little unexpected. My work moves between code, visual expression, and collaboration.</p>
-            </div>
-          </section>
-        )}
+        {activeSection.title === "Hello" && <HomeIntroSections />}
 
-        {activeSection.title === "Hello" && (
-          <section className="relative left-1/2 flex min-h-screen w-screen -translate-x-1/2 snap-start snap-always items-center justify-center bg-[#6456C2] px-7 py-24 text-[#F8E8EE] sm:px-12">
-            <div className="text-center font-mono">
-              <p className="text-xs uppercase tracking-[0.22em] text-[#F8E8EE]">Contact</p>
-              <h2 className="mt-5 text-3xl font-bold tracking-[0.04em] sm:text-5xl">Let’s make something thoughtful.</h2>
-              <a
-                href="mailto:anniecluo1998@gmail.com"
-                className="mt-8 inline-block text-sm uppercase tracking-[0.16em] underline decoration-[#D98AA7] underline-offset-8 transition-colors hover:text-white sm:text-base"
-              >
-                Email me →
-              </a>
-            </div>
-          </section>
-        )}
+        {activeSection.title === "Software Engineer" && <SoftwareEngineerSection />}
 
-        {activeSection.title === "Software Engineer" && (
-          <section className="relative left-1/2 w-screen -translate-x-1/2 snap-start snap-always bg-[#F8E8EE] px-6 pb-40 pt-16 text-[#23519F] sm:px-10 sm:pb-48 sm:pt-24 md:px-14 lg:px-20 xl:px-24">
-            <div className="mx-auto max-w-6xl">
-              <div className="flex flex-col gap-5 border-b border-[#23519F]/25 pb-8 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#A83F6B]">Selected build</p>
-                  <h2 className="mt-3 font-mono text-3xl font-bold uppercase tracking-[0.04em] text-[#6456C2] sm:text-5xl">UI/UX portfolio website</h2>
-                </div>
-                <a
-                  href="https://stephanieluo.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-mono text-xs uppercase tracking-[0.16em] text-[#23519F] underline decoration-[#D98AA7] underline-offset-4 transition-colors hover:text-[#6456C2]"
-                >
-                  Visit live site →
-                </a>
-              </div>
-              <p className="mt-8 max-w-3xl font-mono text-base normal-case leading-relaxed text-[#23519F] sm:text-lg">A responsive portfolio experience built to showcase UI/UX work through thoughtful visual design, smooth motion, and a clear browsing flow.</p>
-              <div className="mt-10 grid border-y border-[#23519F]/25 sm:grid-cols-3">
-                {[
-                  ["Responsive UI", "Layouts that adapt gracefully across devices."],
-                  ["Design systems", "Reusable patterns that keep the experience cohesive."],
-                  ["Case-study flow", "Clear storytelling that makes the work easy to explore."],
-                ].map(([title, description]) => (
-                  <div key={title} className="border-b border-[#23519F]/25 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-5 sm:first:pl-0 sm:last:border-r-0 sm:last:pr-0">
-                    <h3 className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#6456C2]">{title}</h3>
-                    <p className="mt-2 font-mono text-xs normal-case leading-relaxed text-[#23519F]">{description}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2">
-                {[
-                  ["Smooth page transitions", "Custom fade-in and fade-out animations create a seamless browsing flow.", smoothTransitions],
-                  ["Scroll-based animation", "Content responds to movement with subtle transitions that add energy without overwhelming the work.", scrollAnimation],
-                  ["Animated title effects", "Motion in the page headers gives the experience a modern, memorable introduction.", titleAnimation],
-                  ["Responsive by design", "The layout adapts across mobile, tablet, and desktop so the work stays accessible everywhere.", tabletResponsive],
-                ].map(([title, description, image]) => (
-                  <article key={title} className="border-t border-[#23519F]/25 pt-5 first:border-t-0 first:pt-0">
-                    <h3 className="font-mono text-lg font-bold uppercase tracking-[0.08em] text-[#6456C2]">{title}</h3>
-                    <p className="mt-3 font-mono text-sm normal-case leading-relaxed text-[#23519F]">{description}</p>
-                    <img src={image} alt={title} loading="lazy" className="mt-5 aspect-[16/10] w-full object-cover object-center" />
-                  </article>
-                ))}
-              </div>
-              <div className="mt-12 grid gap-8 border-t border-[#23519F]/25 pt-8 sm:grid-cols-2 sm:items-center">
-                <div>
-                <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#A83F6B]">Built for every screen</p>
-                  <p className="mt-3 font-mono text-sm normal-case leading-relaxed text-[#23519F] sm:text-base">Responsive layouts, interaction details, and visual hierarchy work together across phone, tablet, and desktop.</p>
-                </div>
-                <div className="flex items-end justify-center gap-4 sm:justify-end">
-                  <img src={tabletResponsive} alt="Tablet responsive layout" loading="lazy" className="max-h-52 w-auto object-contain" />
-                  <img src={phoneResponsive} alt="Phone responsive layout" loading="lazy" className="max-h-44 w-auto object-contain" />
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {activeIndex === modelSectionIndex && (
-          <>
-            <div
-              className="model-carousel film-roll relative left-1/2 flex min-h-screen w-screen -translate-x-1/2 snap-start snap-always items-center bg-[#1B1920] px-7 py-24 sm:px-12 lg:px-16"
-            >
-              <button
-                type="button"
-                aria-controls="model-gallery-track"
-                aria-pressed={isCarouselPaused}
-                aria-label={isCarouselPaused ? "Play model photo carousel" : "Pause model photo carousel"}
-                onClick={() => setIsCarouselPaused((paused) => !paused)}
-                className="absolute right-7 top-7 z-10 font-mono text-[10px] uppercase tracking-[0.16em] text-[#F8E8EE] underline decoration-[#D98AA7] underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F8E8EE] sm:right-12 sm:top-10"
-              >
-                {isCarouselPaused ? "Play" : "Pause"} motion
-              </button>
-              <div className="model-track-viewport mx-auto -translate-y-6 max-w-xl overflow-hidden lg:max-w-4xl lg:-translate-y-8 xl:max-w-5xl 2xl:max-w-6xl">
-                <div id="model-gallery-track" className={`model-gallery-grid ${isCarouselPaused ? "is-paused" : ""}`}>
-                  {[...modelOrder, ...modelOrder].map((image, index) => {
-                    return (
-                    <img
-                      key={`${image.src}-${index}`}
-                      src={image.src}
-                      alt={index < modelOrder.length ? image.alt : ""}
-                      aria-hidden={index >= modelOrder.length ? "true" : undefined}
-                      loading={index < modelOrder.length ? "eager" : "lazy"}
-                      decoding="async"
-                      fetchPriority={index === 0 ? "high" : "low"}
-                      className="model-gallery-image aspect-[4/5] object-cover object-center"
-                    />
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-            <section className="model-details relative left-1/2 flex min-h-screen w-screen -translate-x-1/2 snap-start snap-always items-center bg-[#F8E8EE] px-6 py-12 text-[#23519F] sm:px-10 sm:py-24 md:px-14 lg:px-20 xl:px-24">
-              <div className="mx-auto w-full max-w-4xl">
-                <div className="mb-6 flex flex-col gap-2 sm:mb-14 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
-                  <div>
-                    <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#A83F6B]">Model profile</p>
-                    <h2 className="mt-2 font-mono text-4xl font-bold uppercase tracking-[0.08em] text-[#6456C2] sm:mt-3 sm:text-6xl">Annie Luo</h2>
-                  </div>
-                  <a
-                    href="https://www.instagram.com/anniepotatoes/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-mono text-xs uppercase tracking-[0.18em] text-[#23519F] underline decoration-[#D98AA7] underline-offset-4 transition-colors hover:text-[#6456C2]"
-                  >
-                    View Instagram →
-                  </a>
-                </div>
-                <dl className="grid grid-cols-1 border-t border-[#23519F]/25 sm:grid-cols-2">
-                  {[
-                    ["Height", "5'6\" / 168 cm"],
-                    ["Bust", "29.5\" / 75 cm"],
-                    ["Waist", "22.5\" / 57 cm"],
-                    ["Hips", "34.5\" / 88 cm"],
-                    ["Shoe", "US 7.5 / EU 38.5"],
-                    ["Hair", "Black"],
-                    ["Eyes", "Brown"],
-                  ].map(([label, value]) => (
-                    <div key={label} className="flex items-baseline justify-between gap-4 border-b border-[#23519F]/25 py-3 sm:gap-6 sm:px-5 sm:py-5 first:sm:pl-0 even:sm:pr-0">
-                      <dt className="font-mono text-xs uppercase tracking-[0.18em] text-[#A83F6B]">{label}</dt>
-                      <dd className="text-right font-mono text-sm uppercase tracking-[0.08em] text-[#23519F]">{value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </section>
-          </>
-        )}
+        {activeIndex === modelSectionIndex && <ModelCarousel />}
 
         {scrollPageCount > 1 && scrollPageIndex > 0 && (
           <button
