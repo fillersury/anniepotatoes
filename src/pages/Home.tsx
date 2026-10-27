@@ -1,22 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import modelOne from "../assets/modeling_photos/test_1.jpg";
-import modelFour from "../assets/modeling_photos/test_4.jpg";
-import modelSeven from "../assets/modeling_photos/test_7.jpg";
-import modelTen from "../assets/modeling_photos/test_10.jpg";
 import smoothTransitions from "../assets/smooth-transitions.gif";
 import scrollAnimation from "../assets/scroll-animation.gif";
 import titleAnimation from "../assets/title-animation.gif";
 import phoneResponsive from "../assets/phone-responsive.png";
 import tabletResponsive from "../assets/ipad-responsive.png";
 
-const modelPortfolio = [
-  { src: modelOne, alt: "Portrait from Annie Luo's model portfolio" },
-  { src: modelFour, alt: "Portrait from Annie Luo's model portfolio" },
-  { src: modelSeven, alt: "Portrait from Annie Luo's model portfolio" },
-  { src: modelTen, alt: "Portrait from Annie Luo's model portfolio" },
-];
+type ModelPhoto = {
+  src: string;
+  alt: string;
+};
+
+const modelPortfolioBaseUrl = "https://portfolio.anniepotatoes.me/test_shoots";
+
+const fallbackModelPortfolio: ModelPhoto[] = Array.from({ length: 12 }, (_, index) => {
+  const photoNumber = index + 1;
+  return {
+    src: `${modelPortfolioBaseUrl}/test_${photoNumber}.jpg`,
+    alt: `Portrait ${photoNumber} from Annie Luo's model portfolio`,
+  };
+});
 
 function shuffle<T>(items: T[]) {
   const shuffled = [...items];
@@ -50,7 +54,8 @@ function Home() {
   const [isFading, setIsFading] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
-  const [modelOrder] = useState(() => shuffle(modelPortfolio));
+  const [modelPortfolio, setModelPortfolio] = useState<ModelPhoto[]>(fallbackModelPortfolio);
+  const [modelOrder, setModelOrder] = useState(() => shuffle(fallbackModelPortfolio));
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const [scrollPageIndex, setScrollPageIndex] = useState(0);
   const [hoveredCaret, setHoveredCaret] = useState<"up" | "down" | null>(null);
@@ -58,6 +63,41 @@ function Home() {
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const sectionScrollPositions = useRef<Record<number, number>>({});
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch(`${modelPortfolioBaseUrl}/model-portfolio.json`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Manifest request failed: ${response.status}`);
+        return response.json() as Promise<unknown>;
+      })
+      .then((manifest) => {
+        if (!Array.isArray(manifest)) throw new Error("Manifest must be an array");
+
+        const photos = manifest.flatMap((entry) => {
+          if (!entry || typeof entry !== "object" || !("file" in entry) || typeof entry.file !== "string") return [];
+          if (!/^test_\d+\.jpg$/.test(entry.file)) return [];
+
+          return [{
+            src: `${modelPortfolioBaseUrl}/${entry.file}`,
+            alt: "alt" in entry && typeof entry.alt === "string" ? entry.alt : "Model portfolio portrait",
+          }];
+        });
+
+        if (photos.length > 0) setModelPortfolio(photos);
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        console.warn("Using the fallback model portfolio because the manifest could not be loaded.", error);
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    setModelOrder(shuffle(modelPortfolio));
+  }, [modelPortfolio]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsFading(false), 50);
